@@ -88,6 +88,7 @@
                         progressBarFull.style.width = 100 * progress + "%";
                     }
                 ).then((unityInstance) => {
+                  MyGameInstance=unityInstance;
                     window.gameInstance = unityInstance;
                     window.unityInstance = unityInstance;
                     window.iTracker.startWebcam();
@@ -115,6 +116,9 @@
                 document.getElementById("startWebcamManuallyDiv").style.display = "none";
                 iTracker.VIDEO.play()
             }
+      function Getinfo(){
+        MyGameInstance.SendMessage('System', 'SetName', '{{.Name}}');
+      }
 
     </script>
 </body>
